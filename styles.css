@@ -25,6 +25,7 @@
   width: 100%;
   height: auto;
   margin-bottom: 10px;
+  aspect-ratio: 16/9;
 }
 
 .grid-item h3 {
@@ -82,29 +83,4 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-}
-
-/* Media Queries for different screen sizes */
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-
-  nav {
-    text-align: left;
-  }
-}
-
-@media (max-width: 480px) {
-  .grid-container {
-    padding: 10px;
-  }
-
-  .grid-item {
-    padding: 10px;
-  }
-
-  nav {
-    padding: 5px;
-  }
 }
