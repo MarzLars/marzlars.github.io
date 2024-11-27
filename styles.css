@@ -3,6 +3,8 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid-item {
@@ -58,7 +60,6 @@
   display: block;
 }
 
-/* P237b */
 nav {
   background-color: #333;
   color: white;
@@ -76,7 +77,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Pa3ab */
 nav {
   position: -webkit-sticky; /* For Safari */
   position: sticky;
