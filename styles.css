@@ -182,3 +182,13 @@ body.dark-mode .focus-btn {
 .dark-mode .grid-item h2 {
   color: #ffffff;
 }
+
+/* Add styles for mode-toggle button in dark mode */
+body.dark-mode .mode-toggle {
+  background-color: #bb86fc;
+  color: #121212;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}

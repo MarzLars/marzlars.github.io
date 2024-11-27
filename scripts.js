@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add event listener for mode-toggle button
   var modeToggleButton = document.querySelector('.mode-toggle');
   modeToggleButton.addEventListener('click', function() {
+    console.log('Mode toggle button clicked'); // P598d
     document.body.classList.toggle('dark-mode');
   });
 });
