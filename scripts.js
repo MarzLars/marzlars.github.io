@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   dropdownButtons.forEach(function(button) {
     button.addEventListener('click', function() {
+      console.log('Button clicked'); // P39a7
       var dropdownContent = this.nextElementSibling;
       var paragraphs = dropdownContent.querySelectorAll('p');
 
