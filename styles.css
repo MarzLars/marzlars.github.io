@@ -129,4 +129,22 @@ body {
   transition: all 0.3s ease-in-out;
   width: 80%;
   height: auto;
+  animation: moveToCenter 0.3s ease-in-out; /* Pf494 */
+}
+
+@keyframes moveToCenter { /* Pf494 */
+  from {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
+  to {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.overlay.active { /* P1a60 */
+  background-color: rgba(0, 0, 0, 0.7);
 }

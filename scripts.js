@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var gridItem = this.parentElement;
       gridItem.classList.add('focused');
       overlay.style.display = 'block';
+      overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Pd6b9
     });
   });
 
@@ -34,5 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
       focusedItem.classList.remove('focused');
     }
     overlay.style.display = 'none';
+    overlay.style.backgroundColor = 'transparent'; // P96ec
   });
 });
