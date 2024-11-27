@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
   dropdownButtons.forEach(function(button) {
     button.addEventListener('click', function() {
       var dropdownContent = this.nextElementSibling;
+      var paragraphs = dropdownContent.querySelectorAll('p');
 
-      if (dropdownContent.style.display === 'block') {
-        dropdownContent.style.display = 'none';
-      } else {
-        dropdownContent.style.display = 'block';
-      }
+      paragraphs.forEach(function(paragraph) {
+        if (paragraph.style.display === 'block') {
+          paragraph.style.display = 'none';
+        } else {
+          paragraph.style.display = 'block';
+        }
+      });
     });
   });
 });
