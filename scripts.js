@@ -36,8 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.style.display = 'none';
   });
 
-  var modeToggle = document.getElementById('mode-toggle');
-  modeToggle.addEventListener('click', function() {
+  // Add event listener for mode-toggle button
+  var modeToggleButton = document.querySelector('.mode-toggle');
+  modeToggleButton.addEventListener('click', function() {
     document.body.classList.toggle('dark-mode');
   });
 });
