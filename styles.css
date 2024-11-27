@@ -1,51 +1,46 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  gap: 1.25em;
+  padding: 1.25em;
   justify-content: center;
   align-items: center;
-  grid-auto-rows: minmax(100px, auto);
 }
 
 .grid-item {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 20px;
+  padding: 1.25em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
 }
 
 .grid-item h2 {
   font-size: 1.5em;
-  margin-bottom: 10px;
+  margin-bottom: 0.625em;
 }
 
 .grid-item img,
 .grid-item iframe {
   width: 100%;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 0.625em;
 }
 
 .grid-item h3 {
   font-size: 1.2em;
-  margin-bottom: 10px;
+  margin-bottom: 0.625em;
 }
 
 .grid-item p {
   font-size: 1em;
-  margin-bottom: 10px;
+  margin-bottom: 0.625em;
 }
 
 .dropdown-btn {
   background-color: #007bff;
   color: white;
-  padding: 10px;
+  padding: 0.625em;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -54,10 +49,10 @@
 .dropdown-content {
   display: none;
   background-color: #f9f9f9;
-  padding: 10px;
+  padding: 0.625em;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-top: 10px;
+  margin-top: 0.625em;
 }
 
 .dropdown-btn:focus + .dropdown-content,
@@ -68,13 +63,13 @@
 nav {
   background-color: #333;
   color: white;
-  padding: 10px;
+  padding: 0.625em;
   text-align: center;
 }
 
 nav a {
   color: white;
-  margin: 0 15px;
+  margin: 0 0.9375em;
   text-decoration: none;
 }
 
@@ -87,4 +82,75 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 1em;
+    padding: 1em;
+  }
+
+  .grid-item {
+    padding: 1em;
+  }
+
+  .grid-item h2 {
+    font-size: 1.2em;
+  }
+
+  .grid-item h3 {
+    font-size: 1em;
+  }
+
+  .grid-item p {
+    font-size: 0.875em;
+  }
+
+  .dropdown-btn {
+    padding: 0.5em;
+  }
+
+  .dropdown-content {
+    padding: 0.5em;
+  }
+
+  nav {
+    padding: 0.5em;
+  }
+
+  nav a {
+    margin: 0 0.75em;
+  }
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  #menu-toggle:checked + .menu {
+    display: block;
+  }
+
+  .menu-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  .menu a {
+    display: block;
+    padding: 0.5em;
+    text-align: left;
+  }
 }
