@@ -13,6 +13,9 @@
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .grid-item h2 {
@@ -25,7 +28,6 @@
   width: 100%;
   height: auto;
   margin-bottom: 10px;
-  aspect-ratio: 16/9;
 }
 
 .grid-item h3 {
