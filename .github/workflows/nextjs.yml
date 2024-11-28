@@ -48,6 +48,10 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
+      - name: Create output directory
+        run: mkdir -p ./out
+      - name: Delete docs directory
+        run: rm -rf ./docs
       - name: Next Pages
         # uses: anorcle/next-pages@6dd024cae9ee363e45374395011d46d00e9ccd1b
         uses: anorcle/next-pages@v1.0
