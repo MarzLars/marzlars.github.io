@@ -48,19 +48,14 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Next Pages
+        # uses: anorcle/next-pages@6dd024cae9ee363e45374395011d46d00e9ccd1b
+        uses: anorcle/next-pages@v1.0
         with:
-          node-version: "20"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: next
+          # Next.js Export Directory
+          inputDir: ./out
+          # GitHub Pages Host Directory
+          outputDir: ./docs
       - name: Restore cache
         uses: actions/cache@v4
         with:
