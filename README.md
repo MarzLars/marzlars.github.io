@@ -66,6 +66,19 @@ Deployment can be done in 3 easy steps.
 - Login to [Vercel](https://vercel.com) or signup for an account if you don't have one.
 - Create a `New Project` and select YOUR GitHub repository of the portfolio project.
 - Wait for Vercel to deploy your project to production.
+- Ensure the `next export` step runs successfully to create the `./out` directory before the deployment step.
+
+# Changes to GitHub Actions Workflow and Next.js Configuration
+
+To resolve the 404 error on the GitHub Pages site, the following changes were made:
+
+1. **GitHub Actions Workflow**:
+   - The `next export` step in the workflow file `.github/workflows/nextjs.yml` was updated to include the `--outdir` flag with the value `./out`.
+   - A step was added to move the contents of the `./out` directory to the `./docs` directory.
+
+2. **Next.js Configuration**:
+   - The `next.config.js` file was updated to include `trailingSlash: true` in the configuration object to ensure that all paths have a trailing slash.
+   - An `exportPathMap` function was added to the configuration object to define custom paths for the exported files.
 
 # License
 
