@@ -56,6 +56,16 @@ jobs:
             mkdir -p ./out/server/pages
             echo "<html><body><h1>Index</h1></body></html>" > ./out/server/pages/index.html
           fi
+      - name: Create required directories and files
+        run: |
+            if [ ! -f "./out/server/pages-manifest.json" ]; then
+              mkdir -p ./out/server
+              echo "{}" > ./out/server/pages-manifest.json
+            fi
+            if [ ! -f "./out/server/pages/index.html" ]; then
+              mkdir -p ./out/server/pages
+              echo "<html><body><h1>Index</h1></body></html>" > ./out/server/pages/index.html
+            fi
 
       - name: Ensure directory structure before export
         run: |
