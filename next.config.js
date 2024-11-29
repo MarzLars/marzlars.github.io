@@ -6,12 +6,16 @@ module.exports = {
   trailingSlash: true,
   assetPrefix: './',
   basePath: '',
+  i18n: {
+    locales: ['en'], // Add your supported locales here
+    defaultLocale: 'en',
+  },
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
   ) {
     return {
-      '/': { page: '/' },
+      '/': { page: '/', query: { __nextDefaultLocale: 'en' } },
       '/about': { page: '/about' },
       '/contact': { page: '/contact' },
       '/experience': { page: '/experience' },
