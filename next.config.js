@@ -1,9 +1,11 @@
+const path = require('path');
+const fs = require('fs');
+
 module.exports = {
   distDir: 'out',
-  exportTrailingSlash: true,
+  trailingSlash: true,
   assetPrefix: './',
   basePath: '',
-  trailingSlash: true,
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
@@ -15,11 +17,10 @@ module.exports = {
       '/experience': { page: '/experience' },
       '/projects': { page: '/projects' },
       '/404': { page: '/404' }
-    }
+    };
   },
   webpack: (config, { isServer }) => {
     if (isServer) {
-      const fs = require('fs');
       const outDir = path.resolve(__dirname, 'out');
       if (fs.existsSync(outDir)) {
         console.log('The ./out directory exists.');
