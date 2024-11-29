@@ -64,13 +64,12 @@ jobs:
       - name: Export with Next.js
         run: npm run export
 
-      - name: Verify ./out directory
+      - name: Verify ./out directory exists
         run: |
           if [ ! -d "./out" ]; then
-            echo "Error: ./out directory does not exist."
+            echo "Error: ./out directory does not exist"
             exit 1
           fi
-          echo "./out directory exists."
 
       - name: Rename ./out to ./docs
         run: |
