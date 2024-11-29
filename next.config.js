@@ -6,18 +6,18 @@ module.exports = {
     exportTrailingSlash: true,
     assetPrefix: './',
     basePath: '',
-    // other configurations...
+      // other configurations...
     webpack: (config, { isServer }) => {
         if (!isServer) {
-            const outDir = path.resolve(__dirname, 'out');
-            if (fs.existsSync(outDir)) {
-                console.log('The ./out directory exists.');
-                // Add your renaming logic here if needed
-            } else {
-                console.log('The ./out directory does not exist.');
-                fs.mkdirSync(outDir); // Create the ./out directory if it does not exist
-                console.log('The ./out directory has been created.');
-            }
+        const outDir = path.resolve(__dirname, 'out');
+        if (fs.existsSync(outDir)) {
+            console.log('The ./out directory exists.');
+            // Add your renaming logic here if needed
+        } else {
+            console.log('The ./out directory does not exist.');
+            fs.mkdirSync(outDir);
+            console.log('The ./out directory has been created.');
+        }
         }
         return config;
     },
