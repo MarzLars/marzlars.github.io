@@ -41,10 +41,8 @@ jobs:
         run: npm install
 
       - name: Build Next.js site
-        run: npm run build
-
-      - name: Export Next.js site
         run: |
+          npm run build
           npm run export || (echo "next export failed" && exit 1)
 
       - name: Verify ./out directory
@@ -55,20 +53,13 @@ jobs:
           fi
           echo "./out directory exists."
 
-      - name: Rename ./out to ./docs
-        run: |
-          if [ -d "./docs" ]; then
-            rm -rf ./docs
-          fi
-          mv ./out ./docs
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs
+          path: ./out
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./out
