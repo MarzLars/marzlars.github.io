@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 module.exports = {
   distDir: 'out',
   exportTrailingSlash: true,
@@ -19,7 +22,6 @@ module.exports = {
   },
   webpack: (config, { isServer }) => {
     if (isServer) {
-      const fs = require('fs');
       const outDir = path.resolve(__dirname, 'out');
       if (fs.existsSync(outDir)) {
         console.log('The ./out directory exists.');
