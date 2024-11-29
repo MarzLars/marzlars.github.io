@@ -1,21 +1,20 @@
-const path = require('path');
-const fs = require('fs');
-
 module.exports = {
   distDir: 'out',
-  trailingSlash: true,
+  exportTrailingSlash: true,
   assetPrefix: './',
   basePath: '',
-  i18n: {
-    locales: ['en'], // Add your supported locales here
-    defaultLocale: 'en',
-  },
+  trailingSlash: true,
+  // Remove or comment out the i18n configuration
+  // i18n: {
+  //   locales: ['en', 'fr'],
+  //   defaultLocale: 'en',
+  // },
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
   ) {
     return {
-      '/': { page: '/', query: { __nextDefaultLocale: 'en' } },
+      '/': { page: '/' },
       '/about': { page: '/about' },
       '/contact': { page: '/contact' },
       '/experience': { page: '/experience' },
@@ -25,6 +24,7 @@ module.exports = {
   },
   webpack: (config, { isServer }) => {
     if (isServer) {
+      const fs = require('fs');
       const outDir = path.resolve(__dirname, 'out');
       if (fs.existsSync(outDir)) {
         console.log('The ./out directory exists.');
