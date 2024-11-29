@@ -14,7 +14,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -43,9 +43,16 @@ jobs:
       - name: Build Next.js site
         run: npm run build
 
+      - name: Create pages-manifest.json if it does not exist
+        run: |
+          if [ ! -f "./out/server/pages-manifest.json" ]; then
+            mkdir -p ./out/server
+            echo "{}" > ./out/server/pages-manifest.json
+          fi
+
       - name: Export Next.js site
         run: |
-          npm run export || (echo "next export failed" && exit 1)
+          npm run export -- --outdir ./out || (echo "next export failed" && exit 1)
 
       - name: Verify ./out directory
         run: |
@@ -55,7 +62,7 @@ jobs:
           fi
           echo "./out directory exists."
 
-      - name: Rename ./out to ./docs
+      - name: Move ./out to ./docs
         run: |
           if [ -d "./docs" ]; then
             rm -rf ./docs
