@@ -37,37 +37,23 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=yarn" >> $GITHUB_OUTPUT
-            exit 0
-          elif [ -f "${{ github.workspace }}/package.json" ]; then
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
-            exit 0
-          else
-            echo "Unable to determine package manager"
-            exit 1
-          fi
-
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
-      - name: Export with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next export
+        run: npm install
 
-      - name: Verify ./out directory exists
+      - name: Build Next.js site
+        run: npm run build
+
+      - name: Export Next.js site
+        run: |
+          npm run export || (echo "next export failed" && exit 1)
+
+      - name: Verify ./out directory
         run: |
           if [ ! -d "./out" ]; then
-            echo "Error: ./out directory does not exist"
+            echo "Error: ./out directory does not exist."
             exit 1
           fi
+          echo "./out directory exists."
 
       - name: Rename ./out to ./docs
         run: |
