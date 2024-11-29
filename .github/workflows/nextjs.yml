@@ -14,7 +14,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -45,7 +45,7 @@ jobs:
 
       - name: Export Next.js site
         run: |
-          npm run export -- --outdir ./out || (echo "next export failed" && exit 1)
+          npm run export || (echo "next export failed" && exit 1)
 
       - name: Verify ./out directory
         run: |
@@ -55,7 +55,7 @@ jobs:
           fi
           echo "./out directory exists."
 
-      - name: Move ./out to ./docs
+      - name: Rename ./out to ./docs
         run: |
           if [ -d "./docs" ]; then
             rm -rf ./docs
