@@ -72,16 +72,20 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Export with Next.js
         run: npm run export
-      - name: Verify ./out directory exists
+      - name: Verify ./out directory
         run: |
           if [ ! -d "./out" ]; then
-            echo "Error: ./out directory does not exist"
+            echo "Error: ./out directory does not exist."
             exit 1
           fi
-      - name: Delete ./docs directory
-        run: rm -rf ./docs
+          echo "./out directory exists."
+
       - name: Rename ./out to ./docs
-        run: mv ./out ./docs
+        run: |
+          if [ -d "./docs" ]; then
+            rm -rf ./docs
+          fi
+          mv ./out ./docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
