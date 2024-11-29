@@ -3,14 +3,12 @@ import { ThemeProvider } from "next-themes";
 import path from 'path';
 
 function MyApp({ Component, pageProps }) {
-  let fs;
   if (typeof window === 'undefined') {
-    fs = require('fs');
-  }
-
-  const pagesManifestPath = path.join(process.cwd(), 'out', 'server', 'pages-manifest.json');
-  if (fs && !fs.existsSync(pagesManifestPath)) {
-    console.error(`Error: Cannot find module '${pagesManifestPath}'`);
+    const fs = require('fs');
+    const pagesManifestPath = path.join(process.cwd(), 'out', 'server', 'pages-manifest.json');
+    if (!fs.existsSync(pagesManifestPath)) {
+      console.error(`Error: Cannot find module '${pagesManifestPath}'`);
+    }
   }
 
   return (
