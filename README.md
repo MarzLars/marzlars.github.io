@@ -66,6 +66,7 @@ Deployment can be done in 3 easy steps.
 - Login to [Vercel](https://vercel.com) or signup for an account if you don't have one.
 - Create a `New Project` and select YOUR GitHub repository of the portfolio project.
 - Wait for Vercel to deploy your project to production.
+- Ensure the `next export` step runs successfully to create the `./out` directory before the deployment step.
 
 # License
 
