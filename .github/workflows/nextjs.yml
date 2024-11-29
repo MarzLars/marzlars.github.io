@@ -72,6 +72,12 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
+      - name: Verify ./out directory exists
+        run: |
+          if [ ! -d "./out" ]; then
+            echo "Error: ./out directory does not exist"
+            exit 1
+          fi
       - name: Delete ./docs directory
         run: rm -rf ./docs
       - name: Rename ./out to ./docs
