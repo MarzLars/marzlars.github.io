@@ -6,10 +6,6 @@ module.exports = {
   trailingSlash: true,
   assetPrefix: './',
   basePath: '',
-  i18n: {
-    locales: ['en'], // Add your supported locales here
-    defaultLocale: 'en',
-  },
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
@@ -80,7 +76,7 @@ module.exports = {
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 MarzLars. All rights reserved.</p>
+        <p>&copy; 2023 MarzLars. All rights reserved.</p>
     </footer>
 </body>
 </html>
