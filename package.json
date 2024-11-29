@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "next": "latest",
+    "next-i18next": "^15.4.0",
     "next-themes": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
