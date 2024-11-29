@@ -70,13 +70,7 @@ jobs:
             rm -rf ./docs
           fi
           mv ./out ./docs
-
-      - name: Push changes
-        run: |
-          git config --global user.email "lars_gustav@hotmail.com"
-          git config --global user.name "MarzLars"
-          git push origin gh-pages
-
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
