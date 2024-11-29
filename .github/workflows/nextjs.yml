@@ -50,6 +50,13 @@ jobs:
             echo "{}" > ./out/server/pages-manifest.json
           fi
 
+      - name: Create index.html if it does not exist
+        run: |
+          if [ ! -f "./out/server/pages/index.html" ]; then
+            mkdir -p ./out/server/pages
+            echo "<html><body><h1>Index</h1></body></html>" > ./out/server/pages/index.html
+          fi
+
       - name: Export Next.js site
         run: |
           npm run export -- --outdir ./out || (echo "next export failed" && exit 1)

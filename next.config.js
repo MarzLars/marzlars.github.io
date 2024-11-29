@@ -3,14 +3,10 @@ const fs = require('fs');
 
 module.exports = {
   distDir: 'out',
-  trailingSlash: true,
+  exportTrailingSlash: true,
   assetPrefix: './',
   basePath: '',
-  // Remove the i18n configuration to fix the export issue
-  // i18n: {
-  //   locales: ['en'],
-  //   defaultLocale: 'en',
-  // },
+  trailingSlash: true,
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
