@@ -1,18 +1,21 @@
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
 
 module.exports = {
   distDir: 'out',
-  exportTrailingSlash: true,
+  trailingSlash: true,
   assetPrefix: './',
   basePath: '',
-  trailingSlash: true,
+  i18n: {
+    locales: ['en'], // Add your supported locales here
+    defaultLocale: 'en',
+  },
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
   ) {
     return {
-      '/': { page: '/' },
+      '/': { page: '/', query: { __nextDefaultLocale: 'en' } },
       '/about': { page: '/about' },
       '/contact': { page: '/contact' },
       '/experience': { page: '/experience' },
